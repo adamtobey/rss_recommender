@@ -14,7 +14,8 @@ class Data(object):
     @staticmethod
     def save(data, *names):
         *dirs, name = names
-        path = os.path.join(DATA_DIR, *dirs, "{}.json".format(name))
+        path = os.path.join(DATA_DIR, *dirs)
         pathlib.Path(path).mkdir(parents=True, exist_ok=True)
-        with open(path, 'w') as outf:
+        path = os.path.join(path, "{}.json".format(name))
+        with open(path, 'r+') as outf:
             json.dump(data, outf)

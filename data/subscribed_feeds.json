@@ -1,6 +1,1 @@
-{
-  "1": {
-    "title": "Test feed",
-    "description": "Test description"
-  }
-}
+{"1": {"title": "Test feed", "description": "Test description"}, "2": {"title": "test", "description": "test_description"}, "3": {"title": "test", "description": "test_description"}, "4": {"title": "test", "description": "test_description"}}
