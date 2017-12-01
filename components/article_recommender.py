@@ -2,18 +2,16 @@ import numpy as np
 
 class ArticleRecommender(object):
 
-    def __init__(self, base_article, other_articles):
-        self.base_article = base_article
-        self.base_id = base_article["id"]
-        self.base_norm = np.array(base_article["classification"])
-        self.base_norm = self.base_norm / np.linalg.norm(self.base_norm)
+    def __init__(self, match_affinity, other_articles):
+        match_affinity = np.array(match_affinity)
+        self.base_norm = match_affinity / np.linalg.norm(match_affinity)
         self.other_articles = other_articles
 
-    def recommend(self, limit):
+    def recommend(self, limit, exclude_ids=[]):
         ranked = [
             (self.similarity(article), article_id)
             for article_id, article in self.other_articles.items()
-            if article_id != self.base_id
+            if article_id not in exclude_ids
         ]
         return [
             pair[1]
