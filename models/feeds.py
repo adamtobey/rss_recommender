@@ -11,7 +11,8 @@ class Feeds(object):
         try:
             feed = {
                 "title": feed_info["title"],
-                "description": feed_info["description"]
+                "description": feed_info["description"],
+                "url": feed_info["url"]
             }
             feeds[next_id] = feed
             Data.save(feeds, "subscribed_feeds")

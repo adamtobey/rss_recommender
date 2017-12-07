@@ -17,5 +17,5 @@ class Data(object):
         path = os.path.join(DATA_DIR, *dirs)
         pathlib.Path(path).mkdir(parents=True, exist_ok=True)
         path = os.path.join(path, "{}.json".format(name))
-        with open(path, 'r+') as outf:
+        with open(path, 'w+') as outf:
             json.dump(data, outf)
